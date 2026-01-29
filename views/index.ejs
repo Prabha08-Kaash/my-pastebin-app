@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pastebin Lite</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: white;
+      padding: 25px;
+      border-radius: 8px;
+      width: 400px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    textarea, input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 12px;
+    }
+
+    button {
+      margin-top: 15px;
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h2>Pastebin Lite</h2>
+
+    <form action="/api/pastes" method="POST">
+
+      <label>Content</label>
+      <textarea name="content" rows="5" placeholder="Write something..." ></textarea>
+
+      <label>TTL (seconds)</label>
+      <input type="number" name="ttl_seconds" placeholder="Optional">
+
+      <label>Max Views</label>
+      <input type="number" name="max_views" placeholder="Optional">
+
+      <button type="submit">Create Paste</button>
+    </form>
+  </div>
+
+</body>
+</html>
+
