@@ -7,15 +7,14 @@
 ## Table of Contents
 
 1. [Running Locally](#running-locally)  
-2. [Environment Variables](#environment-variables)  
-3. [Scripts](#scripts)  
-4. [Deployment on Vercel](#deployment-on-vercel)  
-5. [API Example Requests](#api-example-requests)  
-6. [Persistence Layer](#persistence-layer)  
-7. [Important Design Decisions](#important-design-decisions)  
-8. [Repository Notes](#repository-notes)  
-9. [Automated Tests](#automated-tests)  
-10. [Summary](#summary)
+2. [Scripts](#scripts)  
+3. [Deployment on Vercel](#deployment-on-vercel)  
+4. [API Example Requests](#api-example-requests)  
+5. [Persistence Layer](#persistence-layer)  
+6. [Important Design Decisions](#important-design-decisions)  
+7. [Repository Notes](#repository-notes)  
+8. [Automated Tests](#automated-tests)  
+9. [Summary](#summary)
 
 ---
 
@@ -57,18 +56,6 @@ http://localhost:3000/
 
 *For TTL testing, include header:
 x-test-now-ms: <timestamp in milliseconds> when TEST_MODE=1*
-
----
-
-## Environment Variables
-
-
-| Variable   | Description                                      | Example                                         |
-|------------|-------------------------------------------------|-------------------------------------------------|
-| MONGO_URL  | MongoDB connection string                        | mongodb+srv://<username>:<password>@cluster.mongodb.net/<dbname> |
-| PORT       | Port for local server (ignored in Vercel)       | 3000                                            |
-| TEST_MODE  | Enable deterministic TTL testing for automated tests | 1                                              |
-
 
 ---
 
