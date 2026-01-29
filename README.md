@@ -71,7 +71,7 @@ npm start
 npm run vercel-start
 ```
 
-application URL - my-pastebin-app-seven.vercel.app
+application URL - https://my-pastebin-app-seven.vercel.app
 
 ---
 
