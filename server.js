@@ -1,5 +1,5 @@
 import express from "express";
-import dotenv from "dotenv"
+import dotenv from "dotenv";
 import mongoose from "mongoose";
 import cors from "cors";
 import path from "path";
@@ -25,30 +25,11 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.set('view engine', 'ejs');
-
 // connect To MongoDB
-let isConnected = false;
 
-async function connectToMongoDB() {
-    try {
-        await mongoose.connect(process.env.MONGO_URL)
-        isConnected = true;
-        console.log("Connected to MongoDB");
-    } catch (error) {
-        console.error("Error Connecting to MongoDB");
-    }
-}
-app.use((req, res, next) => {
-    if (!isConnected) {
-        connectToMongoDB();
-    }
-    next();
-})
-
-//mongoose.connect(process.env.MONGO_URL)
-//.then(() => console.log("MongoDB connected"))
-// .catch((err) => console.log(err));
+ await mongoose.connect(process.env.MONGO_URL)
+.then(() => console.log("MongoDB connected"))
+ .catch((err) => console.log(err));
 
 // render 
 app.get("/", (req, res) => {

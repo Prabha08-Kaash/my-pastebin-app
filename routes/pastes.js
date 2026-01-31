@@ -8,14 +8,14 @@ const router = express.Router();
 router.post("/", async (req, res) => {
     const { content, ttl_seconds, max_views } = req.body
 
-    //validation
+    //validation     
     if (!content || content.trim() === "") {
         return res.status(400).json({ error: "content is required" })
     }
 
     //  Parse TTL and max_views safely
-    const ttl = ttl_seconds !== undefined && ttl_seconds !== "" ? parseInt(ttl_seconds) : undefined;
-    const maxViews = max_views !== undefined && max_views !== "" ? parseInt(max_views) : undefined;
+   const ttl = ttl_seconds !== undefined && ttl_seconds !== "" ? parseInt(ttl_seconds) : undefined;
+   const maxViews = max_views !== undefined && max_views !== "" ? parseInt(max_views) : undefined;
 
     // Validate TTL and max_views
     if (ttl !== undefined && (isNaN(ttl) || ttl < 1)) {
@@ -26,7 +26,7 @@ router.post("/", async (req, res) => {
     }
 
     // generate id
-    const id = nanoid(10);
+    const id = nanoid(10); 
 
     // create new paste
     const paste = new Paste({
@@ -70,7 +70,7 @@ router.get("/:id", async (req, res) => {
         })
     }
 
-    // Check constraints
+    
     const ttlExpired = paste.ttl_seconds && now > paste.created_at.getTime() + paste.ttl_seconds * 1000;
     const maxViewsExceeded = paste.max_views && paste.views_count >= paste.max_views;
 
@@ -78,7 +78,7 @@ router.get("/:id", async (req, res) => {
         return res.status(404).json({ error: ttlExpired ? "Paste expired" : "Max Views exceeded" });
     }
 
-    
+
     paste.views_count += 1;
     await paste.save();
 
